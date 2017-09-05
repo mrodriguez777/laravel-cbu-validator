@@ -29,7 +29,7 @@ class Validator
     {
 
         // Perform simple test on invalid bank_id
-        if(!CBU::bankExists($cbuNumber))
+        if(!Cbu::bankExists($cbuNumber))
 				{
             return false;
         }

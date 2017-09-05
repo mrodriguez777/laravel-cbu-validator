@@ -14,6 +14,11 @@ Set providers in app/config.php
 'providers' => [
     Mrodriguez777\CbuValidator\CbuValidatorServiceProvider::class,
 ]
+
+
+Lastly, create the validation messages for the new rules by adding the following lines to resources/lang/en/validation.php
+``` php
+'cbu' => 'The :attribute format is invalid.',
 ```
 
 ## License

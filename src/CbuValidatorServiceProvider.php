@@ -13,12 +13,9 @@ class CbuValidatorServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        /**
-         * Extend the Laravel Validator with the "identity_number" rule
-         */
         $this->app['validator']->extend('cbu', function ($attribute, $value, $parameter)
         {
-            return CBU::isValid($value);
+            return (new Cbu())->isValid($value);
         });
 
     }

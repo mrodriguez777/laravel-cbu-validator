@@ -1,4 +1,4 @@
-<<?php
+<?php namespace Mrodriguez777\CbuValidator;
 
 class Banks
 {
@@ -105,7 +105,7 @@ class Banks
 
 			return false;
 		}
-		
+
 		public function getBankList()
 		{
 			return $this->banksarray;

@@ -1,0 +1,36 @@
+{
+    "name": "mrodriguez777/laravel-cbu-validator",
+    "description": "Cbu Validator for Laravel 5",
+    "keywords": [
+        "mrodriguez777",
+        "argentina",
+        "cbu",
+        "validator",
+        "laravel"
+    ],
+    "homepage": "https://github.com/mrodriguez777/laravel-cbu-validator",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Martin Maximiliano Rodriguez",
+            "email": "martin_rodriguez777@hotmail.com"
+        }
+    ],
+    "require": {
+        "php" : ">=5.6.0|>=7.0",
+        "illuminate/support": "~5.3.28|~5.4|~5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mrodriguez777\\CbuValidator\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mrodriguez777\\CbuValidator\\CbuValidatorServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable"
+}

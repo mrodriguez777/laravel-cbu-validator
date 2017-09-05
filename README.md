@@ -1,4 +1,4 @@
-# laravel-cbu-validator
+# Laravel Cbu Validator
 CBU Validator for Laravel 5
 
 ## Install
@@ -6,7 +6,7 @@ CBU Validator for Laravel 5
 Via Composer
 
 ``` bash
-$ composer require mrodriguez/laravel-cbu-validator
+$ composer require mrodriguez777/laravel-cbu-validator
 ```
 
 Set providers in app/config.php

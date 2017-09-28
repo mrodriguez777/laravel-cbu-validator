@@ -71,7 +71,6 @@ class Banks
       '386' => 'Nuevo Banco De Entre Rios S.A.',
       '388' => 'Nuevo Banco Bisel S.A.',
       '389' => 'Banco Columbia S.A.',
-      '415' => 'MULTIFINANZAS Compañia Financiera S.A.',
       '426' => 'Banco Banco BICA S.A.',
       '431' => 'Banco COINAG S.A.',
       '432' => 'Banco De COMERCIO S.A.',

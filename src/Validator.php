@@ -22,7 +22,7 @@ class Validator
 
 		private function validFormat($cbuNumber)
 		{
-			return preg_match('/[0-9]{22}/', $cbuNumber);
+			return preg_match('/[0-9]{22}/', $cbuNumber) && strlen($cbuNumber) == 22;
 		}
 
     private function validate($cbuNumber)

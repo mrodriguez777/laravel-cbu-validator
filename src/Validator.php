@@ -11,7 +11,7 @@ class Validator
     {
 
         if (!$this->validFormat($cbuNumber))
-				{
+		{
             return false;
         }
 
@@ -20,10 +20,10 @@ class Validator
     }
 
 
-		private function validFormat($cbuNumber)
-		{
-			return preg_match('/[0-9]{22}/', $cbuNumber) && strlen($cbuNumber) == 22;
-		}
+	private function validFormat($cbuNumber)
+	{
+		return preg_match('/[0-9]{22}/', $cbuNumber) && strlen($cbuNumber) == 22;
+	}
 
     private function validate($cbuNumber)
     {
@@ -41,33 +41,44 @@ class Validator
 
 
 
-		private function verifyDigits($cbuNumber)
+	private function verifyDigits($cbuNumber)
+	{
+		$arr = str_split($cbuNumber);
+
+		if ($arr[7] != $this->getVerifyDigit($arr, 0, 6))
 		{
-			$arr = str_split($cbuNumber);
-
-			if ($arr[7] != $this->getVerifyDigit($arr, 0, 6))
-			{
-				return false;
-			}
-
-			if ($arr[21] != $this->getVerifyDigit($arr, 8, 20))
-			{
-				return false;
-			}
-			return true;
+			return false;
 		}
+
+		if ($arr[21] != $this->getVerifyDigit($arr, 8, 20))
+		{
+			return false;
+		}
+		return true;
+	}
 
     private function getVerifyDigit($num, $initPos, $finalPos)
     {
-			$ponderador = [3,1,7,9];
-			$sum = 0;
-			$j = 0;
-			for ($i = $finalPos; $i >= $initPos; $i--)
-			{
-				$sum = $sum + ($num[$i] * $ponderador[$j % 4]);
-				$j++;
-			}
-			return (10 - $sum % 10) % 10;
+		$ponderador = [3,1,7,9];
+		$sum = 0;
+		$j = 0;
+		for ($i = $finalPos; $i >= $initPos; $i--)
+		{
+			$sum = $sum + ($num[$i] * $ponderador[$j % 4]);
+			$j++;
+		}
+		return (10 - $sum % 10) % 10;
     }
+
+	public function checkType($cbuNumber, $type)
+	{
+		$bankId = Cbu::getBankId($cbuNumber);
+		$accountTypes = Banks::getAccountTypes();
+		$cbuCode = substr($cbuNumber, 8, 2);
+
+		return array_key_exists($bankId, $accountTypes)
+				&& in_array($cbuCode, $accountTypes[$bankId][$type]);
+
+	}
 
 }

@@ -80,8 +80,8 @@ class Validator
 		{
 			return true;
 		}
-		return array_key_exists($bankId, $accountTypes)
-				&& in_array($cbuCode, $accountTypes[$bankId][$type]);
+		
+		return in_array($cbuCode, $accountTypes[$bankId][$type]);
 
 	}
 

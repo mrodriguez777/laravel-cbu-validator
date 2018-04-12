@@ -76,6 +76,10 @@ class Validator
 		$accountTypes = Banks::getAccountTypes();
 		$cbuCode = substr($cbuNumber, 8, 2);
 
+		if(!array_key_exists($bankId, $accountTypes))
+		{
+			return true;
+		}
 		return array_key_exists($bankId, $accountTypes)
 				&& in_array($cbuCode, $accountTypes[$bankId][$type]);
 

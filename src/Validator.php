@@ -73,14 +73,14 @@ class Validator
 	public function checkType($cbuNumber, $type)
 	{
 		$bankId = Cbu::getBankId($cbuNumber);
-		$accountTypes = Banks::getAccountTypes();
+		$accountTypes = (new Banks)->getAccountTypes();
 		$cbuCode = substr($cbuNumber, 8, 2);
 
 		if(!array_key_exists($bankId, $accountTypes))
 		{
 			return true;
 		}
-		
+
 		return in_array($cbuCode, $accountTypes[$bankId][$type]);
 
 	}

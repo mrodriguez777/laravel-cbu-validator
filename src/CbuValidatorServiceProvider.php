@@ -15,14 +15,14 @@ class CbuValidatorServiceProvider extends ServiceProvider
     {
         $this->app['validator']->extend('cbu', function ($attribute, $value, $parameter)
         {
-            return (new Cbu())->isValid($value);
+            return (new Cbu())->isValid(trim($value));
         });
 
 		$this->app['validator']->extend('cbu_ca', function ($attribute, $value, $parameter)
         {
             $cbu = (new Cbu());
 
-			return $cbu->isValid($value) && $cbu->checkType($value, 'CA');
+			return $cbu->isValid(trim($value)) && $cbu->checkType(trim($value), 'CA');
 
         });
 
@@ -30,7 +30,7 @@ class CbuValidatorServiceProvider extends ServiceProvider
         {
             $cbu = (new Cbu());
 
-			return $cbu->isValid($value) && $cbu->checkType($value, 'CC');
+			return $cbu->isValid(trim($value)) && $cbu->checkType(trim($value), 'CC');
 
         });
 
